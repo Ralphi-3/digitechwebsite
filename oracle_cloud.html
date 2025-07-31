@@ -3,15 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kamatera</title>
+    <title>Oracle Cloud Infrastructure - Complete Guide</title>
     <style>
         body {
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            padding-top: 60px;
         }
         .topnav {
             background-color: #333;
             overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
         }
         .topnav a {
             float: left;
@@ -20,14 +29,130 @@
             padding: 14px 16px;
             text-decoration: none;
             font-size: 17px;
+            transition: background-color 0.3s;
         }
         .topnav a:hover {
             background-color: #ddd;
             color: black;
         }
         .topnav a.active {
-            background-color: #4744f7;
+            background-color: #f80000;
             color: white;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #f80000;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #f80000;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h3 {
+            color: #e74c3c;
+            margin-top: 25px;
+        }
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .service-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #f80000;
+        }
+        .highlight {
+            background-color: #ffe6e6;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #f80000;
+            margin: 20px 0;
+        }
+        .free-tier-highlight {
+            background-color: #e8f5e8;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 4px solid #28a745;
+            margin: 20px 0;
+        }
+        .definition-link {
+            color: #f80000;
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 1px dotted #f80000;
+        }
+        .definition-link:hover {
+            background-color: #ffe6e6;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .pricing-table th, .pricing-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .pricing-table th {
+            background-color: #f80000;
+            color: white;
+            font-weight: bold;
+        }
+        .pricing-table tr:hover {
+            background-color: #f5f5f5;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #f80000;
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin: 10px 5px;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #d10000;
+        }
+        .location-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .location-card {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .comparison-section {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
     </style>
 </head>
@@ -38,8 +163,252 @@
         <a href="kamatera.html">Kamatera</a>
         <a class="active" href="#active">Oracle Cloud</a>
         <a href="whats_a_vps.html">What's a VPS</a>
-        </div> 
-<h1>Oracle Cloud</h1>
-    <p>Oracle Cloud is a vps provider that offers free forever vps with up to 4VCPU and 24GB ram in locations like australia</p>
+        <a href="vm_maker.html">VPS Builder</a>
+    </div> 
+    
+    <div class="container">
+        <h1>Oracle Cloud Infrastructure (OCI)</h1>
+        
+        <div class="free-tier-highlight">
+            <p><strong>Oracle Cloud Infrastructure</strong> is a comprehensive <a href="whats_a_vps.html" class="definition-link">cloud computing</a> platform that offers one of the most generous free tiers in the industry. With up to 4 <a href="#vcpu" class="definition-link">vCPUs</a> and 24GB RAM available forever, OCI is an excellent choice for developers, startups, and businesses looking for powerful cloud resources at no cost.</p>
+        </div>
+
+        <h2>What is Oracle Cloud Infrastructure?</h2>
+        <p>Oracle Cloud Infrastructure (OCI) is Oracle's second-generation <a href="whats_a_vps.html" class="definition-link">cloud computing</a> platform that provides high-performance computing capabilities with enterprise-grade security and reliability. Built from the ground up for the cloud, OCI offers a comprehensive suite of services including <a href="#compute" class="definition-link">compute</a>, <a href="#storage" class="definition-link">storage</a>, <a href="#networking" class="definition-link">networking</a>, <a href="#databases" class="definition-link">databases</a>, and <a href="#ai" class="definition-link">artificial intelligence</a> services.</p>
+
+        <h2>Key Features and Benefits</h2>
+        
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>🎁 Generous Free Tier</h3>
+                <p>OCI offers one of the most comprehensive free tiers with up to 4 <a href="#vcpu" class="definition-link">vCPUs</a>, 24GB RAM, 200GB storage, and many other services available forever.</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>⚡ High Performance</h3>
+                <p>Built on bare metal servers with high-speed networking, providing exceptional performance for compute-intensive workloads.</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>🔒 Enterprise Security</h3>
+                <p>Advanced security features including encryption, identity management, and compliance with major security standards.</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>🌍 Global Infrastructure</h3>
+                <p>Data centers in multiple regions worldwide, including Australia, providing low-latency access for global applications.</p>
+            </div>
+        </div>
+
+        <h2>Free Tier Benefits</h2>
+        
+        <div class="free-tier-highlight">
+            <h3>🚀 Always Free Services</h3>
+            <p>Oracle Cloud's free tier includes these services that never expire:</p>
+        </div>
+        
+        <table class="pricing-table">
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Free Tier Allocation</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Compute Instances</td>
+                    <td>2 AMD-based Compute VMs</td>
+                    <td>1/8 OCPU and 1 GB memory each</td>
+                </tr>
+                <tr>
+                    <td>ARM-based Compute</td>
+                    <td>4 ARM-based Compute VMs</td>
+                    <td>1/4 OCPU and 6 GB memory each</td>
+                </tr>
+                <tr>
+                    <td>Block Storage</td>
+                    <td>200 GB</td>
+                    <td>Total storage for all your instances</td>
+                </tr>
+                <tr>
+                    <td>Object Storage</td>
+                    <td>20 GB</td>
+                    <td>For storing files and data</td>
+                </tr>
+                <tr>
+                    <td>Load Balancer</td>
+                    <td>1 instance</td>
+                    <td>10 Mbps bandwidth</td>
+                </tr>
+                <tr>
+                    <td>Databases</td>
+                    <td>2 Autonomous DBs</td>
+                    <td>20 GB storage each</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Core Services</h2>
+
+        <h3 id="compute">🖥️ Compute Services</h3>
+        <ul>
+            <li><strong>Compute Instances:</strong> <a href="whats_a_vps.html" class="definition-link">Virtual machines</a> with various CPU and memory configurations</li>
+            <li><strong>Bare Metal Instances:</strong> Dedicated physical servers for maximum performance</li>
+            <li><strong>Container Engine for Kubernetes:</strong> Managed <a href="#kubernetes" class="definition-link">Kubernetes</a> service</li>
+            <li><strong>Functions:</strong> Serverless computing platform</li>
+            <li><strong>Autonomous Linux:</strong> Self-patching and self-securing operating system</li>
+        </ul>
+
+        <h3 id="storage">💾 Storage Services</h3>
+        <ul>
+            <li><strong>Block Volumes:</strong> High-performance block storage for <a href="whats_a_vps.html" class="definition-link">virtual machines</a></li>
+            <li><strong>Object Storage:</strong> Scalable object storage for files and data</li>
+            <li><strong>File Storage:</strong> Managed file storage service</li>
+            <li><strong>Archive Storage:</strong> Long-term, low-cost storage for infrequently accessed data</li>
+        </ul>
+
+        <h3 id="networking">🌐 Networking Services</h3>
+        <ul>
+            <li><strong>Virtual Cloud Network (VCN):</strong> Customizable private network</li>
+            <li><strong>Load Balancing:</strong> Traffic distribution across multiple instances</li>
+            <li><strong>FastConnect:</strong> Dedicated network connection to Oracle Cloud</li>
+            <li><strong>DNS Management:</strong> Domain name system services</li>
+        </ul>
+
+        <h3 id="databases">🗄️ Database Services</h3>
+        <ul>
+            <li><strong>Autonomous Database:</strong> Self-driving, self-securing, self-repairing database</li>
+            <li><strong>Database Cloud Service:</strong> Managed Oracle Database instances</li>
+            <li><strong>NoSQL Database:</strong> Managed NoSQL database service</li>
+            <li><strong>MySQL Database Service:</strong> Managed MySQL database</li>
+        </ul>
+
+        <h3 id="ai">🤖 Artificial Intelligence & Machine Learning</h3>
+        <ul>
+            <li><strong>Oracle AI Services:</strong> Pre-trained AI models for common use cases</li>
+            <li><strong>Data Science:</strong> Platform for building and deploying ML models</li>
+            <li><strong>Vision AI:</strong> Image and video analysis</li>
+            <li><strong>Language AI:</strong> Natural language processing capabilities</li>
+        </ul>
+
+        <h2>Global Data Center Locations</h2>
+        <p>Oracle Cloud operates data centers in strategic locations worldwide:</p>
+        
+        <div class="location-grid">
+            <div class="location-card">
+                <h4>🇦🇺 Australia</h4>
+                <p>Sydney, Melbourne</p>
+            </div>
+            <div class="location-card">
+                <h4>🇺🇸 North America</h4>
+                <p>Ashburn, Phoenix, San Jose, Toronto</p>
+            </div>
+            <div class="location-card">
+                <h4>🇪🇺 Europe</h4>
+                <p>Amsterdam, Frankfurt, London, Madrid, Milan, Paris, Stockholm, Zurich</p>
+            </div>
+            <div class="location-card">
+                <h4>🇯🇵 Asia Pacific</h4>
+                <p>Tokyo, Osaka, Seoul, Singapore</p>
+            </div>
+        </div>
+
+        <h2>Use Cases</h2>
+        
+        <div class="service-grid">
+            <div class="service-card">
+                <h3>🏢 Enterprise Applications</h3>
+                <p>Migrate and modernize enterprise applications with Oracle's enterprise-grade infrastructure and services.</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>💻 Development & Testing</h3>
+                <p>Create development environments and test applications using the generous free tier resources.</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>📊 Data Analytics</h3>
+                <p>Build data warehouses and analytics platforms with Oracle's powerful database and analytics services.</p>
+            </div>
+            
+            <div class="service-card">
+                <h3>🤖 AI/ML Applications</h3>
+                <p>Develop and deploy machine learning models using Oracle's AI services and data science platform.</p>
+            </div>
+        </div>
+
+        <h2>Getting Started with Oracle Cloud</h2>
+        <p>Setting up your Oracle Cloud account is straightforward:</p>
+        <ol>
+            <li><strong>Create Account:</strong> Sign up at <a href="https://www.oracle.com/cloud/free/" class="definition-link">oracle.com/cloud/free</a></li>
+            <li><strong>Verify Identity:</strong> Complete the verification process</li>
+            <li><strong>Set Up Billing:</strong> Add a payment method (required even for free tier)</li>
+            <li><strong>Create Your First Instance:</strong> Deploy a <a href="whats_a_vps.html" class="definition-link">virtual machine</a> using the free tier</li>
+            <li><strong>Explore Services:</strong> Try out other free tier services</li>
+        </ol>
+
+        <h2>Cost Optimization</h2>
+        <p>Oracle Cloud offers several ways to optimize costs:</p>
+        <ul>
+            <li><strong>Always Free Tier:</strong> Generous free resources that never expire</li>
+            <li><strong>Universal Credits:</strong> Flexible pricing model for predictable costs</li>
+            <li><strong>Reserved Instances:</strong> Discounts for committed usage</li>
+            <li><strong>Autoscaling:</strong> Automatically scale resources based on demand</li>
+        </ul>
+
+        <h2>Security and Compliance</h2>
+        <p>Oracle Cloud provides enterprise-grade security:</p>
+        <ul>
+            <li><strong>Encryption:</strong> Data encrypted at rest and in transit</li>
+            <li><strong>Identity and Access Management:</strong> Fine-grained access control</li>
+            <li><strong>Compliance:</strong> Meets major compliance standards (SOC, ISO, GDPR, HIPAA)</li>
+            <li><strong>Security Zones:</strong> Enforce security policies automatically</li>
+            <li><strong>Threat Detection:</strong> Advanced threat protection and monitoring</li>
+        </ul>
+
+        <div class="comparison-section">
+            <h3>Oracle Cloud vs Other Providers</h3>
+            <p><strong>Oracle Cloud advantages:</strong></p>
+            <ul>
+                <li>Most generous free tier with up to 4 <a href="#vcpu" class="definition-link">vCPUs</a> and 24GB RAM</li>
+                <li>Enterprise-grade performance and security</li>
+                <li>Strong database and analytics capabilities</li>
+                <li>Global infrastructure with data centers in Australia</li>
+                <li>Competitive pricing for enterprise workloads</li>
+            </ul>
+        </div>
+
+        <div class="highlight">
+            <h3>Ready to Get Started?</h3>
+            <p>Oracle Cloud Infrastructure offers one of the most generous free tiers in the industry, making it perfect for developers, startups, and businesses looking to explore cloud computing without upfront costs. With enterprise-grade performance and global infrastructure, OCI is ready to support your applications and workloads.</p>
+            
+            <a href="https://www.oracle.com/cloud/free/" class="cta-button">Start Free Tier</a>
+            <a href="https://www.oracle.com/cloud/" class="cta-button">Explore Oracle Cloud</a>
+        </div>
+
+        <h2>Glossary</h2>
+        <div id="vcpu">
+            <strong>vCPU (Virtual CPU):</strong> A virtual central processing unit that represents a portion of a physical CPU core allocated to a virtual machine.
+        </div>
+        <div id="kubernetes">
+            <strong>Kubernetes:</strong> An open-source container orchestration platform that automates the deployment, scaling, and management of containerized applications.
+        </div>
+        <div id="compute">
+            <strong>Compute:</strong> The processing power and resources needed to run applications and workloads in the cloud.
+        </div>
+        <div id="storage">
+            <strong>Storage:</strong> The capacity to store and retrieve data, files, and applications in the cloud.
+        </div>
+        <div id="networking">
+            <strong>Networking:</strong> The infrastructure that enables communication between cloud resources and external networks.
+        </div>
+        <div id="databases">
+            <strong>Databases:</strong> Structured data storage systems that organize, store, and retrieve information efficiently.
+        </div>
+        <div id="ai">
+            <strong>Artificial Intelligence (AI):</strong> Technology that enables machines to perform tasks that typically require human intelligence.
+        </div>
+    </div>
 </body>
 </html>
